@@ -1,5 +1,5 @@
 # https://hub.docker.com/_/php/tags?page=1&name=fpm-bullseye
-FROM php:8.1.10-fpm-bullseye
+FROM php:8.3.9-fpm-bullseye
 
 LABEL org.opencontainers.image.source https://github.com/Container-Driven-Development/PHPfpm-Base
 LABEL org.opencontainers.image.description "Base image for PHPfpm server"
@@ -11,7 +11,7 @@ ENV APP_VERSION $APP_VERSION
 ARG PHP_ENV=production
 ENV TZ "Europe/Prague"
 
-RUN curl -o /usr/local/bin/composer https://getcomposer.org/download/2.6.5/composer.phar && \
+RUN curl -o /usr/local/bin/composer https://getcomposer.org/download/2.7.7/composer.phar && \
     chmod +x /usr/local/bin/composer
 
 COPY --from=node:21.2.0-bullseye-slim /usr/local/bin/node /usr/local/bin/
